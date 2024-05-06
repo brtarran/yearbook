@@ -5,7 +5,7 @@ execute:
   warning: false
 format:
   html: default
-  pdf: default
+  # pdf: default
 ---
 
 ## Admissions
