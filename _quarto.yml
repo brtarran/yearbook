@@ -2,13 +2,21 @@ project:
   type: website
 
 website:
-  title: "yearbook"
+  title: "Statistical Yearbook"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
-
+      - href: chapters/index.qmd
+        text: Chapters
+  
+  sidebar:
+    contents:
+      - href: chapters/box-office/index.qmd
+        text: The Box Office
+      
+      
 format:
   html:
     theme: cosmo

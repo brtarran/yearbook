@@ -1,7 +1,59 @@
 ---
-title: "yearbook"
+title: "Data at a glance"
+format: dashboard
 ---
 
-This is a Quarto website.
+Welcome to the 2022 BFI Statistical Yearbook. Compiled by the Research and Statistics Unit, this Yearbook presents the most comprehensive picture of film in the UK and the performance of British films abroad during 2021. This publication is one of the ways the BFI delivers on its commitment to evidence-based policy for film. We hope you enjoy this Yearbook and find it useful.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Row {height=70%}
+
+```{r}
+#| title: Box office admissions
+
+# load packages
+
+library(tidyverse)
+library(plotly)
+library(dplyr)
+
+# import data and skip comment lines
+
+admissions <- read_csv(
+  file = "chapters/box-office/data/admissions.csv", 
+  comment = "#"
+  )
+
+fig1 <- ggplot(
+  mapping = aes(
+    x = Year,
+    y = `Admissions (million)`,
+  )
+) +
+  geom_point(data = admissions, size = 2, alpha = 1, color = "grey") +
+  geom_line(data = admissions, size = 1, alpha = 0.5, color = "purple") +
+  expand_limits(y = 0) +
+  labs(
+    title = "Number of admissions (million)",
+    x = "Year",
+    y = "",
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(
+      face = "bold",
+      margin = margin(b = 10)
+    ),
+    plot.title.position = "plot",
+    plot.margin = margin(15, 10, 10, 15)
+  )
+ggplotly(fig1) %>%
+  layout(hovermode = "x")
+```
+
+## Row {height=30%}
+
+```{python}
+```
+
+```{python}
+```
