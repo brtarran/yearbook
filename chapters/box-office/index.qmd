@@ -11,7 +11,7 @@ format:
 ## Admissions
 Despite months of closures at the start of the year and subsequent restrictions in the form of capacity limits and rules on social distancing, cinemas enjoyed significantly greater audience numbers in 2021 than in 2020.
 
-Admissions for the year totalled 74 million, up 68% compared with 2020, but still well below the level of attendances seen in 2019 ([@fig-admissions-html]{.content-visible when-format="html"}[@fig-admission-pdf]{.content-visible when-format="pdf"}).
+Admissions for the year totalled 74 million, up 68% compared with 2020, but still well below the level of attendances seen in 2019 ([@fig-admissions-html]{.content-visible when-format="html"}[@fig-admissions-pdf]{.content-visible when-format="pdf"}).
 
 ```{r}
 # load packages
