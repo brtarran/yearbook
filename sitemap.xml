@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://brtarran.github.io/yearbook/index.html</loc>
-    <lastmod>2024-05-06T15:16:45.131Z</lastmod>
+    <lastmod>2024-05-12T11:16:27.860Z</lastmod>
   </url>
   <url>
     <loc>https://brtarran.github.io/yearbook/chapters/box-office/index.html</loc>
-    <lastmod>2024-05-06T15:46:01.847Z</lastmod>
+    <lastmod>2024-05-12T11:01:15.187Z</lastmod>
   </url>
   <url>
     <loc>https://brtarran.github.io/yearbook/about.html</loc>
     <lastmod>2024-05-06T15:05:53.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://brtarran.github.io/yearbook/chapters/box-office/admissions.html</loc>
+    <lastmod>2024-05-12T14:33:14.984Z</lastmod>
   </url>
 </urlset>
