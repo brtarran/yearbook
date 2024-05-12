@@ -9,7 +9,6 @@ format:
 always_allow_html: true
 ---
 
-## Admissions
 Despite months of closures at the start of the year and subsequent restrictions in the form of capacity limits and rules on social distancing, cinemas enjoyed significantly greater audience numbers in 2021 than in 2020.
 
 Admissions for the year totalled 74 million, up 68% compared with 2020, but still well below the level of attendances seen in 2019 ([@fig-admissions-html]{.content-visible when-format="html"}[@fig-admissions-pdf]{.content-visible when-format="pdf"}).
@@ -132,3 +131,81 @@ kable(markets)
 ```
 :::
 
+[@tbl-monthly-admissions-html]{.content-visible when-format="html"}[@tbl-monthly-admissions-pdf]{.content-visible when-format="pdf"} shows UK cinema admissions by month between 2019 and 2021. The figures show both the shortfall in admissions in comparison with the pre-pandemic totals of 2019 and the year-on-year recovery in attendances seen during some months in 2021. It should be noted, however, that following the re-opening of cinemas in the UK in late spring 2021, one or more restrictions (such as mask wearing, social distancing, capacity limits and mandatory vaccine passports) were in operation in some or all parts of the country for the remainder of the year. (Cinemas began reopening in England, Scotland and Wales from 17 May, and in Northern Ireland from 24 May.)
+
+The first film to top the UK box office charts when cinemas reopened in 2021 was the family-friendly Peter Rabbit 2: The Runaway which grossed £4.6 million (in the UK and Republic of Ireland) on its seven-day opening. (Its Friday to Sunday total of £3.8 million was the biggest three-day opening gross in the territory since Sonic the Hedgehog which earned £4.7 million for its three-day debut in February 2020.) The film was one of three top 20 titles released in May and heralded a summer dominated by action, adventure and comedy titles which attracted younger audiences in particular back to cinemas. After May openers Cruella (a UK qualifying film) and the US horror title The Conjuring: The Devil Made Me Do It, top 20 earners in the summer included UK studio-backed titles Black Widow and Fast & Furious 9, along with Space Jam: A New Legacy, The Suicide Squad, Jungle Cruise, The Croods: A New Age and Free Guy. Top grossing UK independent films released in the summer included the year’s second highest earning UK independent title, The Hitman’s Wife’s Bodyguard alongside The Father, The Courier and People Just Do Nothing: Big in Japan.
+
+Admissions rose each month between May (3.5 million) and August (10.4 million) but fell in September to 6.5 million. Traditionally one of the slowest months for ticket sales, September did, however, see the opening of the year’s fourth highest earning release Shang-Chi and the Legend of the Ten Rings. The superhero blockbuster, the 25th film in the Marvel Cinematic Universe and the first to feature an Asian lead, had the largest opening weekend of the year thus far with a three-day gross of £5.8 million.
+
+Shang-Chi’s three-day record was soon overtaken by the debut of another official 25th outing. The much delayed 007 instalment, No Time to Die, originally scheduled for release in April 2020, grossed £21 million on its three-day opening (£25.8 million including Thursday previews), the highest Friday to Sunday tally for a Bond film ever in the UK and Republic of Ireland. Officially released on 1 October, No Time to Die would go on to become the UK’s third highest ever release with a gross of £97 million and was the first film of the year to entice substantial numbers of older audience members back to the cinema. Alongside three other top 20 earners – Dune, the UK studio-backed title Venom: Let There Be Carnage and The Addams Family 2 – and the top earning UK independent film of the year, The French Dispatch, No Time to Die helped propel October’s ticket sales to the highest total of the year at 16.4 million. October was the only month to see an increase in admissions compared with the equivalent month in 2019.
+
+```{r}
+library(readxl)
+library(dplyr)
+
+monthly_admissions <- read_xlsx("data/bfi-yearbook-2022-uk-box-office-2021.xlsx", sheet = "T2", range = cell_rows(2:15)) %>%
+  mutate(
+    `2020` = as.numeric(`2020`),
+    `2021` = as.numeric(`2021`)
+  ) %>% 
+  replace_na(list(`2020` = 0, `2021` = 0))
+```
+
+::: {.content-visible when-format="html"}
+```{r}
+#| label: tbl-monthly-admissions-html
+#| tbl-cap: "Monthly UK cinema admissions, 2019-2021. Source: CAA, Comscore. [Download this data.](/chapters/box-office/data/bfi-yearbook-2022-uk-box-office-2021.xlsx)"
+
+library(kableExtra)
+
+kbl(monthly_admissions) %>%
+  row_spec(13, bold = T)
+```
+:::
+
+::: {.content-visible when-format="pdf"}
+```{r}
+#| label: tbl-monthly-admissions-pdf
+#| tbl-cap: "Monthly UK cinema admissions, 2019-2021. Source: CAA, Comscore."
+
+kable(monthly_admissions)
+```
+:::
+
+Figure 2 shows the level of recovery in cinema-going in 2021 with admissions in the second half of the year mirroring the pattern of previous years. In general, attendances are cyclical, peaking during the school and festival holiday periods when people have more time to go to the cinema.
+
+```{r}
+library(readxl)
+library(dplyr)
+
+monthly_admissions_5yr <- read_xlsx("data/bfi-yearbook-2022-uk-box-office-2021.xlsx", sheet = "F2", range = cell_rows(2:15)) %>%
+  rename("2021" = 6) %>%
+  rename("Month" = 1) %>% 
+  mutate(
+    `2020` = as.numeric(`2020`),
+    `2021` = as.numeric(`2021`)
+  ) %>% 
+  replace_na(list(`2020` = 0, `2021` = 0))
+
+monthly_admissions_5yr
+```
+
+
+
+<!-- Code for reactable table with Total footer -->
+<!-- ```{r} -->
+<!-- #| label: tbl-monthly-admissions-html -->
+<!-- #| tbl-cap: "Monthly UK cinema admissions, 2019-2021. Source: CAA, Comscore. [Download this data.](/chapters/box-office/data/bfi-yearbook-2022-uk-box-office-2021.xlsx)" -->
+
+<!-- reactable( -->
+<!--   monthly_admissions, -->
+<!--   defaultPageSize = 15, -->
+<!--   columns = list( -->
+<!--     `Admissions (million)` = colDef(footer = "Total"), -->
+<!--     `2019` = colDef(footer = function(values) sprintf("%.1f", sum(values)), format = colFormat(digits = 1)), -->
+<!--     `2020` = colDef(footer = function(values) sprintf("%.1f", sum(values)), format = colFormat(digits = 1)), -->
+<!--     `2021` = colDef(footer = function(values) sprintf("%.1f", sum(values)), format = colFormat(digits = 1)), -->
+<!--     `% change on 2019` = colDef(footer = "-58.0") -->
+<!--   ), -->
+<!--   defaultColDef = colDef(footerStyle = list(fontWeight = "bold"))) -->
+<!-- ``` -->
