@@ -3,6 +3,8 @@ project:
 
 website:
   title: "Statistical Yearbook"
+  page-navigation: true
+  bread-crumbs: true
   navbar:
     left:
       - href: index.qmd
@@ -12,16 +14,25 @@ website:
         text: Chapters
   
   sidebar:
+    collapse-level: 1
     contents:
-      - href: chapters/box-office/index.qmd
-        text: The Box Office
-      
+      - section: "Statistical Yearbook 2022"
+        href: chapters/index.qmd
+        contents: 
+          - section: The Box Office
+            href: chapters/box-office/index.qmd
+            contents:
+              - href: chapters/box-office/admissions.qmd
+                text: Admissions
       
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+
+execute:
+  freeze: auto
 
 
 
