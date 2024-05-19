@@ -17,7 +17,16 @@ Admissions for the year totalled 74 million, up 68% compared with 2020, but stil
 # load packages
 
 library(tidyverse)
+library(plotly)
+library(knitr)
+library(reactable)
+library(readxl)
+library(dplyr)
+library(kableExtra)
 
+```
+
+```{r}
 # import data and skip comment lines
 
 admissions <- read_csv(
@@ -31,8 +40,6 @@ admissions <- read_csv(
 #| label: fig-admissions-html
 #| fig-cap: "Annual UK cinema admissions, 2012-2021. Admissions for the year include all titles on release, including event cinema. Source: Cinema Advertising Agency (CAA), Comscore. [Download this data.](/chapters/box-office/data/admissions.csv)"
 #| column: page
-
-library(plotly)
 
 fig1 <- ggplot(
   mapping = aes(
@@ -103,8 +110,6 @@ fig1
 According to Omdia, global cinema admissions in 2021 totalled 3.3 billion, an increase from 1.9 billion in 2020, but still 57% down on the 7.6 billion recorded in 2019.
 
 ```{r}
-library(knitr)
-
 markets <- read_csv(
   file = "data/largest-markets.csv", 
   comment = "#"
@@ -115,8 +120,6 @@ markets <- read_csv(
 ```{r}
 #| label: tbl-markets-html
 #| tbl-cap: "Largest film markets by admissions, 2019-2021 (ranked by 2021 admissions). Includes all global territories with more than 50 million admissions and all European territories with more than 25 million admissions in the calendar year 2021. Source: Omdia. [Download this data.](/chapters/box-office/data/largest-markets.csv)"
-
-library(reactable)
 
 reactable(markets, defaultPageSize = 15)
 ```
@@ -140,9 +143,6 @@ Admissions rose each month between May (3.5 million) and August (10.4 million) b
 Shang-Chi’s three-day record was soon overtaken by the debut of another official 25th outing. The much delayed 007 instalment, No Time to Die, originally scheduled for release in April 2020, grossed £21 million on its three-day opening (£25.8 million including Thursday previews), the highest Friday to Sunday tally for a Bond film ever in the UK and Republic of Ireland. Officially released on 1 October, No Time to Die would go on to become the UK’s third highest ever release with a gross of £97 million and was the first film of the year to entice substantial numbers of older audience members back to the cinema. Alongside three other top 20 earners – Dune, the UK studio-backed title Venom: Let There Be Carnage and The Addams Family 2 – and the top earning UK independent film of the year, The French Dispatch, No Time to Die helped propel October’s ticket sales to the highest total of the year at 16.4 million. October was the only month to see an increase in admissions compared with the equivalent month in 2019.
 
 ```{r}
-library(readxl)
-library(dplyr)
-
 monthly_admissions <- read_xlsx("data/bfi-yearbook-2022-uk-box-office-2021.xlsx", sheet = "T2", range = cell_rows(2:15)) %>%
   mutate(
     `2020` = as.numeric(`2020`),
@@ -155,9 +155,6 @@ monthly_admissions <- read_xlsx("data/bfi-yearbook-2022-uk-box-office-2021.xlsx"
 ```{r}
 #| label: tbl-monthly-admissions-html
 #| tbl-cap: "Monthly UK cinema admissions, 2019-2021. Source: CAA, Comscore. [Download this data.](/chapters/box-office/data/bfi-yearbook-2022-uk-box-office-2021.xlsx)"
-
-library(kableExtra)
-
 kbl(monthly_admissions) %>%
   row_spec(13, bold = T)
 ```
@@ -172,13 +169,12 @@ kable(monthly_admissions)
 ```
 :::
 
-Figure 2 shows the level of recovery in cinema-going in 2021 with admissions in the second half of the year mirroring the pattern of previous years. In general, attendances are cyclical, peaking during the school and festival holiday periods when people have more time to go to the cinema.
+[@fig-monthly-admissions-5yr-html]{.content-visible when-format="html"}[@fig-monthly-admissions-5yr-pdf]{.content-visible when-format="pdf"} shows the level of recovery in cinema-going in 2021 with admissions in the second half of the year mirroring the pattern of previous years. In general, attendances are cyclical, peaking during the school and festival holiday periods when people have more time to go to the cinema.
 
 ```{r}
-library(readxl)
-library(dplyr)
+# clean and prep data
 
-monthly_admissions_5yr <- read_xlsx("data/bfi-yearbook-2022-uk-box-office-2021.xlsx", sheet = "F2", range = cell_rows(2:15)) %>%
+monthly_admissions_5yr <- read_xlsx("data/bfi-yearbook-2022-uk-box-office-2021.xlsx", sheet = "F2", range = cell_rows(2:14)) %>%
   rename("2021" = 6) %>%
   rename("Month" = 1) %>% 
   mutate(
@@ -187,10 +183,75 @@ monthly_admissions_5yr <- read_xlsx("data/bfi-yearbook-2022-uk-box-office-2021.x
   ) %>% 
   replace_na(list(`2020` = 0, `2021` = 0))
 
-monthly_admissions_5yr
+# put data into tidy format
+
+monthly_admissions_5yr_tidy <- monthly_admissions_5yr %>%
+  pivot_longer(!Month, names_to = "Year", values_to = "Admissions") %>%
+  group_by(Year)
+
+# calculate 5-yr average admissions
+
+monthly_admissions_5yr_avg <- monthly_admissions_5yr_tidy %>%
+  group_by(Month) %>%
+  summarize(Admissions = mean(Admissions, na.rm = TRUE))
+  
+monthly_admissions_5yr_avg$Year <- "5-yr average"
+
+# plot data
+
+fig2 <- ggplot(monthly_admissions_5yr_tidy,
+  mapping = aes(
+    x = fct_inorder(Month),
+    y = Admissions,
+    group = Year
+  )
+) +
+  geom_point(aes(color = Year), size = 2, alpha = 1) +
+  geom_line(aes(color = Year), size = 1, alpha = 0.5) +
+  geom_line(data = monthly_admissions_5yr_avg, linetype = "dashed", color = "black", size = 1) +
+  expand_limits(y = 0) +
+  labs(
+    title = "Number of admissions (million)",
+    x = "Month",
+    y = "",
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(
+      face = "bold",
+      margin = margin(b = 10)
+    ),
+    plot.title.position = "plot",
+    plot.margin = margin(15, 10, 10, 15),
+    legend.position = "top",
+    axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)
+  )
 ```
 
+::: {.content-visible when-format="html"}
+```{r}
+#| label: fig-monthly-admissions-5yr-html
+#| fig-cap: "Monthly UK cinema admissions, 2017-2021. Dashed line is 5-year average. Source: CAA. [Download this data.](/chapters/box-office/data/bfi-yearbook-2022-uk-box-office-2021.xlsx)"
+#| column: page
 
+ggplotly(fig2, tooltip = c("y", "group"))
+```
+:::
+
+::: {.content-visible when-format="pdf"}
+```{r}
+#| label: fig-monthly-admissions-5yr-pdf
+#| fig-cap: "Monthly UK cinema admissions, 2017-2021. Dashed line is 5-year average. Source: CAA. [Download this data.](/chapters/box-office/data/bfi-yearbook-2022-uk-box-office-2021.xlsx)"
+
+fig2
+```
+
+```{r}
+kable(monthly_admissions_5yr)
+```
+:::
+
+Figure 3 puts UK admissions in a longer-term perspective. Along with the USA and other western European countries, cinema-going in the UK declined sharply in the post-war era as incomes rose and new leisure activities became available. The largest competition came from the growth of television, which allowed audiences to satisfy their appetite for screen entertainment in the comfort of their own homes. As cinema admissions fell so did the supply of screens, which led to further falling demand and more cinema closures. By the 1980s the number and quality of the remaining cinemas were at an all-time low. The popularisation of the VCR in the same decade had a further negative impact on attendances, and by 1984 ticket sales had plummeted to a 50-year low of 54 million. However, the introduction of multiplex cinemas to the UK from 1985 onwards began to reverse the trend and ushered in a new period of growth which saw admissions gradually returning to levels last seen in the early 1970s. In the decade prior to the COVID-19 pandemic (2010-2019) attendances topped 170 million in six different years, peaking in 2018 with the highest admissions since 1970. The onset of the pandemic in the UK in 2020 caused massive disruption to the cinema sector: admissions for the year fell to an all-time low of 44 million. While the impact of the pandemic continued into 2021, admissions began to recover with total tickets sales for the year up by more than two-thirds compared with 2020.
 
 <!-- Code for reactable table with Total footer -->
 <!-- ```{r} -->
