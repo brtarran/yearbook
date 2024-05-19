@@ -23,6 +23,7 @@ library(reactable)
 library(readxl)
 library(dplyr)
 library(kableExtra)
+library(reticulate)
 
 ```
 
@@ -241,7 +242,7 @@ ggplotly(fig2, tooltip = c("y", "group"))
 ::: {.content-visible when-format="pdf"}
 ```{r}
 #| label: fig-monthly-admissions-5yr-pdf
-#| fig-cap: "Monthly UK cinema admissions, 2017-2021. Dashed line is 5-year average. Source: CAA. [Download this data.](/chapters/box-office/data/bfi-yearbook-2022-uk-box-office-2021.xlsx)"
+#| fig-cap: "Monthly UK cinema admissions, 2017-2021. Dashed line is 5-year average. Source: CAA."
 
 fig2
 ```
@@ -252,6 +253,26 @@ kable(monthly_admissions_5yr)
 :::
 
 Figure 3 puts UK admissions in a longer-term perspective. Along with the USA and other western European countries, cinema-going in the UK declined sharply in the post-war era as incomes rose and new leisure activities became available. The largest competition came from the growth of television, which allowed audiences to satisfy their appetite for screen entertainment in the comfort of their own homes. As cinema admissions fell so did the supply of screens, which led to further falling demand and more cinema closures. By the 1980s the number and quality of the remaining cinemas were at an all-time low. The popularisation of the VCR in the same decade had a further negative impact on attendances, and by 1984 ticket sales had plummeted to a 50-year low of 54 million. However, the introduction of multiplex cinemas to the UK from 1985 onwards began to reverse the trend and ushered in a new period of growth which saw admissions gradually returning to levels last seen in the early 1970s. In the decade prior to the COVID-19 pandemic (2010-2019) attendances topped 170 million in six different years, peaking in 2018 with the highest admissions since 1970. The onset of the pandemic in the UK in 2020 caused massive disruption to the cinema sector: admissions for the year fell to an all-time low of 44 million. While the impact of the pandemic continued into 2021, admissions began to recover with total tickets sales for the year up by more than two-thirds compared with 2020.
+
+```{python}
+
+# https://blog.stackademic.com/bringing-data-to-life-crafting-animated-timeline-graphs-from-dust-0cbb40ff8737
+
+import plotly.express as px
+import pandas as pd
+
+df = pd.read_excel(r"C:\Users\btarr\GitHub\yearbook\chapters\box-office\data\bfi-yearbook-2022-uk-box-office-2021.xlsx", sheet_name = "F3", skiprows = [0, 89])
+
+print(df)
+
+px.scatter(
+  df, x="Year", y="Admissions (million)", 
+  animation_frame="Year", animation_group="Admissions (million)",
+  hover_name="Admissions (million)", range_y=[0, 2000]
+)
+```
+
+
 
 <!-- Code for reactable table with Total footer -->
 <!-- ```{r} -->
