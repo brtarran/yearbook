@@ -24,12 +24,16 @@ website:
             contents:
               - href: chapters/box-office/admissions.qmd
                 text: Admissions
+              - href: chapters/box-office/history.qmd
+                text: Annual UK admissions, 1935-2021
       
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+    grid: 
+      body-width: 800px
 
 execute:
   freeze: auto

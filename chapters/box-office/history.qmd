@@ -1,0 +1,116 @@
+---
+title: "Annual UK admissions, 1935-2021"
+execute: 
+  echo: false
+  warning: false
+format:
+  html: default
+  pdf: default
+always_allow_html: true
+engine: python3
+---
+
+The chart below puts UK admissions in a longer-term perspective. Along with the USA and other western European countries, cinema-going in the UK declined sharply in the post-war era as incomes rose and new leisure activities became available. The largest competition came from the growth of television, which allowed audiences to satisfy their appetite for screen entertainment in the comfort of their own homes. As cinema admissions fell so did the supply of screens, which led to further falling demand and more cinema closures. By the 1980s the number and quality of the remaining cinemas were at an all-time low. The popularisation of the VCR in the same decade had a further negative impact on attendances, and by 1984 ticket sales had plummeted to a 50-year low of 54 million. However, the introduction of multiplex cinemas to the UK from 1985 onwards began to reverse the trend and ushered in a new period of growth which saw admissions gradually returning to levels last seen in the early 1970s. In the decade prior to the COVID-19 pandemic (2010-2019) attendances topped 170 million in six different years, peaking in 2018 with the highest admissions since 1970. The onset of the pandemic in the UK in 2020 caused massive disruption to the cinema sector: admissions for the year fell to an all-time low of 44 million. While the impact of the pandemic continued into 2021, admissions began to recover with total tickets sales for the year up by more than two-thirds compared with 2020.
+
+```{python}
+#| column: body-outset
+
+import plotly.express as px
+import pandas as pd
+import numpy as np
+import plotly.io as pio
+import plotly.graph_objects as go
+
+df = pd.read_excel(r"C:\Users\btarr\GitHub\yearbook\chapters\box-office\data\bfi-yearbook-2022-uk-box-office-2021.xlsx", sheet_name = "F3", skiprows = [0, 89])
+
+df_indexed = pd.DataFrame()
+for index in np.arange(start=0,
+                       stop=len(df)+1):
+    df_slicing = df.iloc[:index].copy()
+    df_slicing['frame'] = (index)
+    df_indexed = pd.concat([df_indexed, df_slicing])
+
+scatter_plot = px.scatter(
+    df_indexed,
+    x='Year',
+    y='Admissions (million)',
+    animation_frame='frame',
+)
+
+for frame in scatter_plot.frames:
+    for data in frame.data:
+        data.update(mode='markers',
+                    showlegend=False,
+                    opacity=1)
+        data['x'] = np.take(data['x'], [-1])
+        data['y'] = np.take(data['y'], [-1])
+
+line_plot = px.line(
+    df_indexed,
+    x='Year',
+    y='Admissions (million)',
+    animation_frame='frame',
+    width=800,
+    height=600,
+    line_shape='spline'
+)
+
+# Hide line plot legend to avoid duplication with scatter plot's legend
+line_plot.update_traces(showlegend=False)  
+
+for frame in line_plot.frames:
+    for data in frame.data:
+        data.update(mode='lines', opacity=0.8, showlegend=False)
+
+combined_plot = go.Figure(
+    data=line_plot.data + scatter_plot.data,
+    frames=[
+        go.Frame(data=line_plot.data + scatter_plot.data, name=scatter_plot.name)
+        for line_plot, scatter_plot in zip(line_plot.frames, scatter_plot.frames)
+    ],
+    layout=line_plot.layout
+)
+
+combined_plot.update_yaxes(
+    gridcolor='#7a98cf',
+    griddash='dot',
+    gridwidth=.5,
+    linewidth=2,
+    tickwidth=2
+)
+
+combined_plot.update_xaxes(
+    title_font=dict(size=16),
+    linewidth=2,
+    tickwidth=2
+)
+ 
+combined_plot.update_traces(
+    line=dict(width=5),
+    marker=dict(size=25))
+ 
+combined_plot.update_layout(
+    font=dict(size=18),
+    yaxis=dict(tickfont=dict(size=16)),
+    xaxis=dict(tickfont=dict(size=16)),
+    showlegend=False,
+    template='simple_white',
+    yaxis_title="<b>Admissions (million)</b>",
+    xaxis_title="<b>Year</b>",
+    yaxis_showgrid=True,
+    xaxis_range=[df_indexed['Year'].min(),
+                 df_indexed['Year'].max()],
+    yaxis_range=[df_indexed['Admissions (million)'].min()*0.75,
+                 df_indexed['Admissions (million)'].max()*1.25],
+    plot_bgcolor='#ffffff',
+    paper_bgcolor='#ffffff',
+    title_x=0.5
+)
+ 
+# adjust speed of animation
+combined_plot['layout'].pop("sliders")
+combined_plot.layout.updatemenus[0].buttons[0]['args'][1]['frame']['duration'] = 120
+combined_plot.layout.updatemenus[0].buttons[0]['args'][1]['transition']['duration'] = 50
+combined_plot.layout.updatemenus[0].buttons[0]['args'][1]['transition']['redraw'] = False
+combined_plot.show()
+```
