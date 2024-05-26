@@ -20,8 +20,9 @@ import pandas as pd
 import numpy as np
 import plotly.io as pio
 import plotly.graph_objects as go
+from pyprojroot.here import here
 
-df = pd.read_excel(r"C:\Users\btarr\GitHub\yearbook\chapters\box-office\data\bfi-yearbook-2022-uk-box-office-2021.xlsx", sheet_name = "F3", skiprows = [0, 89])
+df = pd.read_excel(here("data/bfi-yearbook.xlsx"), sheet_name = "F3", skiprows = [0, 89])
 
 df_indexed = pd.DataFrame()
 for index in np.arange(start=0,

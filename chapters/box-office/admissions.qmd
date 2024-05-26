@@ -144,7 +144,7 @@ Admissions rose each month between May (3.5 million) and August (10.4 million) b
 Shang-Chi’s three-day record was soon overtaken by the debut of another official 25th outing. The much delayed 007 instalment, No Time to Die, originally scheduled for release in April 2020, grossed £21 million on its three-day opening (£25.8 million including Thursday previews), the highest Friday to Sunday tally for a Bond film ever in the UK and Republic of Ireland. Officially released on 1 October, No Time to Die would go on to become the UK’s third highest ever release with a gross of £97 million and was the first film of the year to entice substantial numbers of older audience members back to the cinema. Alongside three other top 20 earners – Dune, the UK studio-backed title Venom: Let There Be Carnage and The Addams Family 2 – and the top earning UK independent film of the year, The French Dispatch, No Time to Die helped propel October’s ticket sales to the highest total of the year at 16.4 million. October was the only month to see an increase in admissions compared with the equivalent month in 2019.
 
 ```{r}
-monthly_admissions <- read_xlsx("data/bfi-yearbook-2022-uk-box-office-2021.xlsx", sheet = "T2", range = cell_rows(2:15)) %>%
+monthly_admissions <- read_xlsx(here::here("data/bfi-yearbook.xlsx"), sheet = "T2", range = cell_rows(2:15)) %>%
   mutate(
     `2020` = as.numeric(`2020`),
     `2021` = as.numeric(`2021`)
@@ -155,7 +155,7 @@ monthly_admissions <- read_xlsx("data/bfi-yearbook-2022-uk-box-office-2021.xlsx"
 ::: {.content-visible when-format="html"}
 ```{r}
 #| label: tbl-monthly-admissions-html
-#| tbl-cap: "Monthly UK cinema admissions, 2019-2021. Source: CAA, Comscore. [Download this data.](/chapters/box-office/data/bfi-yearbook-2022-uk-box-office-2021.xlsx)"
+#| tbl-cap: "Monthly UK cinema admissions, 2019-2021. Source: CAA, Comscore. [Download this data.](/data/bfi-yearbook.xlsx)"
 kbl(monthly_admissions) %>%
   row_spec(13, bold = T)
 ```
@@ -175,7 +175,7 @@ kable(monthly_admissions)
 ```{r}
 # clean and prep data
 
-monthly_admissions_5yr <- read_xlsx("data/bfi-yearbook-2022-uk-box-office-2021.xlsx", sheet = "F2", range = cell_rows(2:14)) %>%
+monthly_admissions_5yr <- read_xlsx(here::here("data/bfi-yearbook.xlsx"), sheet = "F2", range = cell_rows(2:14)) %>%
   rename("2021" = 6) %>%
   rename("Month" = 1) %>% 
   mutate(
@@ -232,7 +232,7 @@ fig2 <- ggplot(monthly_admissions_5yr_tidy,
 ::: {.content-visible when-format="html"}
 ```{r}
 #| label: fig-monthly-admissions-5yr-html
-#| fig-cap: "Monthly UK cinema admissions, 2017-2021. Dashed line is 5-year average. Source: CAA. [Download this data.](/chapters/box-office/data/bfi-yearbook-2022-uk-box-office-2021.xlsx)"
+#| fig-cap: "Monthly UK cinema admissions, 2017-2021. Dashed line is 5-year average. Source: CAA. [Download this data.](/data/bfi-yearbook.xlsx)"
 #| column: page
 
 ggplotly(fig2, tooltip = c("y", "group"))
@@ -255,7 +255,7 @@ kable(monthly_admissions_5yr)
 <!-- Code for reactable table with Total footer -->
 <!-- ```{r} -->
 <!-- #| label: tbl-monthly-admissions-html -->
-<!-- #| tbl-cap: "Monthly UK cinema admissions, 2019-2021. Source: CAA, Comscore. [Download this data.](/chapters/box-office/data/bfi-yearbook-2022-uk-box-office-2021.xlsx)" -->
+<!-- #| tbl-cap: "Monthly UK cinema admissions, 2019-2021. Source: CAA, Comscore. [Download this data.](/data/bfi-yearbook.xlsx)" -->
 
 <!-- reactable( -->
 <!--   monthly_admissions, -->
