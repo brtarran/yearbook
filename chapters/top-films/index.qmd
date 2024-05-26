@@ -1,0 +1,12 @@
+---
+title: "Top films in 2021"
+execute: 
+  echo: false
+  warning: false
+format:
+  html: default
+  pdf: default
+always_allow_html: true
+---
+
+Five of the top 10 films released at the UK and Republic of Ireland box office in 2021 were UK qualifying productions. The list is headed by the latest James Bond outing No Time to Die which became the third highest earning film of all time in the UK with gross receipts of £97 million.

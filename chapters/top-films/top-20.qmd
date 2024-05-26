@@ -1,0 +1,108 @@
+---
+title: "The top 20 films"
+execute: 
+  echo: false
+  warning: false
+format:
+  html: default
+  pdf: default
+always_allow_html: true
+---
+
+```{r}
+# load packages
+
+library(tidyverse)
+# library(knitr)
+library(readxl)
+library(dplyr)
+library(kableExtra)
+
+```
+
+::: {.panel-tabset}
+
+## All cinema releases
+
+The top performing cinema release in the UK and Republic of Ireland in 2021 was No Time to Die with earnings (to 13 February 2022) of just under £97 million (@tbl-all-releases). The 25th outing in the James Bond franchise – one of a host of big-tent releases rescheduled from 2020 due to the COVID-19 pandemic – became the third highest grossing film of all time at the UK and Republic of Ireland box office, behind 2015’s Star Wars: The Force Awakens (£123 million) and 2012’s Skyfall (£103 million). The second most popular release of the year was Spider-Man: No Way Home with earnings (to 13 February 2022) of just under £93 million, a figure which ordinarily would have seen it top the annual chart. The top two films alone accounted for almost one third (31%) of the year’s total theatrical gross.
+
+Five films earned £20 million or over in 2021, up from only one in 2020 but significantly below a pre-pandemic total of 17 in 2019. The top 20 films in 2021 had a combined gross of £451 million, which accounted for 72% of the total UK and Republic of Ireland box office. In 2020, the top 20 films earned £201 million (80% of the total gross), and in 2019 they earned £767 million (59%). Seven of the top 20 releases in 2021 were UK qualifying films (the same as in 2020, but down from nine in 2019), all of which were UK studio-backed productions. Sequels and franchise films accounted for 16 of the top 20 titles compared with five in 2020 and 16 in 2019. Action and comedy were the two most popular genres, both in terms of number of releases and box office takings. Action accounted for seven titles, including No Time to Die, Spider-Man: No Way Home and Shang-Chi and the Legend of the Ten Rings, which between them earned £278 million, while comedy had three releases - Free Guy, Space Jam: A New Legacy and Ghostbusters: Afterlife - which grossed £41 million.
+
+```{r}
+cinema_releases <- read_xlsx(here::here("data/bfi-yearbook-top-films.xlsx"), sheet = "T1", range = cell_rows(2:22))%>%
+  mutate(
+    `Box office gross (£ million)` = as.numeric(`Box office gross (£ million)`)) %>% 
+  replace_na(list(`Box office gross (£ million)` = 92.8))
+```
+
+```{r}
+#| label: tbl-all-releases
+#| tbl-cap: "Box office results for the top 20 films released in the UK and Republic of Ireland, 2021. Source: Comscore, BFI RSU analysis. [Download this data.](/data/bfi-yearbook-top-films.xlsx)"
+
+kbl(cinema_releases)
+```
+
+::: figure-caption
+*Notes:*
+Box office gross = cumulative total up to 13 February 2022. 
+*Film still on release on 13 February 2022. 
+#At the time of writing (August 2022), earnings for Spider-Man: No Way Home had surpassed £96 million, making it the fourth highest grossing film of all time at the UK and Republic of Ireland box office.
+:::
+
+## UK films
+
+The top 20 UK qualifying films of 2021 had a combined gross of £238 million, which was 39% of the total UK and Republic of Ireland box office (@tbl-uk-film). This is just over double the £113 million earned by the top 20 UK films released in 2020 (46% of the total box office), but less than half of the £527 million grossed in 2019 (41% of the
+total box office).
+
+Five UK films earned over £10 million in 2021, compared with four in 2020 and 16 in 2019. The top 20 list is dominated by UK/USA collaborations, most of which were studio-backed productions. Seven of the top 20 titles were UK independent films, down from 15 in 2020 and eight in 2019. These seven titles accounted for 8% of the total box office for the top 20 UK films, down from 30% in 2020 (when the shortfall in the number of studio releases due to the COVID crisis meant independent UK films took a greater than usual share of the box office) and 19% in 2019.
+
+The number of genres in the top 20 illustrates the range of UK film production. Action, with a combined box office of £158 million from five titles (including the top earning film of the year, No Time to Die), was the highest earning genre, while eight other genres were represented: animation, biopic, comedy, family, fantasy, horror, musical, and sci-fi.
+
+```{r}
+uk_film <- read_xlsx(here::here("data/bfi-yearbook-top-films.xlsx"), sheet = "T2", range = cell_rows(2:22))%>%
+  mutate(
+    `Opening weekend gross (£ million)` = as.numeric(`Opening weekend gross (£ million)`)) %>% 
+  replace_na(list(`Opening weekend gross (£ million)` = 0.1))
+```
+
+```{r}
+#| label: tbl-uk-film
+#| tbl-cap: "Box office results for the top 20 UK films released in the UK and Republic of Ireland, 2021. Source: Comscore, BFI RSU analysis. [Download this data.](/data/bfi-yearbook-top-films.xlsx)"
+
+kbl(uk_film)
+```
+
+::: figure-caption
+*Notes:*
+Box office gross = cumulative total up to 13 February 2022. 
+*Film still on release on 13 February 2022. 
+#Film made with independent (non-studio) US support or with the independent arm of a US studio.
+:::
+
+## UK independent films
+
+The top 20 UK independent films of 2021, shown in @tbl-uk-indie, had a combined gross of £27 million (compared with £34 million in 2020 and £145 million in 2019). These films accounted for 4% of the overall UK and Republic of Ireland box office, down from 14% in 2020 and 11% in 2019.
+
+The top grossing UK independent film in 2021 was The French Dispatch with earnings (to 13 February 2022) of £4 million. The film is one of a number of inward investment titles in the top 20. (Other films in this category include The Hitman’s Wife’s Bodyguard, 83 and Chal Mera Putt 3.)
+
+Generating £12 million from six releases, comedy was the biggest earning genre across the top 20 while drama titles made up the greatest number of releases (eight). Comedies included the two top grossing titles The French Dispatch and The Hitman’s Wife’s Bodyguard, while drama releases included The Father and Supernova. The list also includes two biopics, two thrillers, one family title and one romance.
+
+```{r}
+uk_indie <- read_xlsx(here::here("data/bfi-yearbook-top-films.xlsx"), sheet = "T3", range = cell_rows(2:22))
+```
+
+```{r}
+#| label: tbl-uk-indie
+#| tbl-cap: "Box office results for the top 20 UK qualifying independent films released in the UK and Republic of Ireland, 2021. Source: Comscore, BFI RSU analysis. [Download this data.](/data/bfi-yearbook-top-films.xlsx)"
+
+kbl(uk_indie)
+```
+
+::: figure-caption
+*Notes:*
+Box office gross = cumulative total up to 13 February 2022. 
+*Film still on release on 13 February 2022. 
+#Film made with independent (non-studio) US support or with the independent arm of a US studio.
+:::
+
+:::

@@ -26,6 +26,11 @@ website:
                 text: Admissions
               - href: chapters/box-office/history.qmd
                 text: Annual UK admissions, 1935-2021
+          - section: Top films
+            href: chapters/top-films/index.qmd
+            contents:
+              - href: chapters/top-films/top-20.qmd
+                text: The top 20 films
       
 format:
   html:
