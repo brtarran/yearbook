@@ -2,7 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://brtarran.github.io/yearbook/index.html</loc>
-    <lastmod>2024-05-25T15:21:49.316Z</lastmod>
+    <lastmod>2024-05-26T10:55:36.215Z</lastmod>
+  </url>
+  <url>
+    <loc>https://brtarran.github.io/yearbook/chapters/top-films/index.html</loc>
+    <lastmod>2024-05-26T11:21:29.041Z</lastmod>
   </url>
   <url>
     <loc>https://brtarran.github.io/yearbook/chapters/box-office/index.html</loc>
@@ -10,7 +14,7 @@
   </url>
   <url>
     <loc>https://brtarran.github.io/yearbook/chapters/box-office/admissions.html</loc>
-    <lastmod>2024-05-25T15:24:52.412Z</lastmod>
+    <lastmod>2024-05-26T11:11:18.884Z</lastmod>
   </url>
   <url>
     <loc>https://brtarran.github.io/yearbook/about.html</loc>
@@ -18,6 +22,10 @@
   </url>
   <url>
     <loc>https://brtarran.github.io/yearbook/chapters/box-office/history.html</loc>
-    <lastmod>2024-05-25T15:30:53.647Z</lastmod>
+    <lastmod>2024-05-26T11:11:32.727Z</lastmod>
+  </url>
+  <url>
+    <loc>https://brtarran.github.io/yearbook/chapters/top-films/top-20.html</loc>
+    <lastmod>2024-05-26T12:28:26.840Z</lastmod>
   </url>
 </urlset>
