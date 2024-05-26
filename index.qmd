@@ -5,7 +5,7 @@ format: dashboard
 
 Welcome to the 2022 BFI Statistical Yearbook. Compiled by the Research and Statistics Unit, this Yearbook presents the most comprehensive picture of film in the UK and the performance of British films abroad during 2021. This publication is one of the ways the BFI delivers on its commitment to evidence-based policy for film. We hope you enjoy this Yearbook and find it useful.
 
-## Row {height=70%}
+## Row
 
 ```{r}
 #| title: Box office admissions
@@ -50,10 +50,41 @@ ggplotly(fig1) %>%
   layout(hovermode = "x")
 ```
 
-## Row {height=30%}
+## Row {.tabset}
 
-```{python}
+```{r}
+#| title: Top 5 cinema releases
+
+# load packages
+
+library(tidyverse)
+library(readxl)
+library(dplyr)
+library(kableExtra)
+
+cinema_releases <- read_xlsx(here::here("data/bfi-yearbook-top-films.xlsx"), sheet = "T1", range = cell_rows(2:7))%>%
+  mutate(
+    `Box office gross (£ million)` = as.numeric(`Box office gross (£ million)`)) %>% 
+  replace_na(list(`Box office gross (£ million)` = 92.8))
+
+kbl(cinema_releases)
 ```
 
-```{python}
+```{r}
+#| title: Top 5 UK films
+
+uk_film <- read_xlsx(here::here("data/bfi-yearbook-top-films.xlsx"), sheet = "T2", range = cell_rows(2:7))%>%
+  mutate(
+    `Opening weekend gross (£ million)` = as.numeric(`Opening weekend gross (£ million)`)) %>% 
+  replace_na(list(`Opening weekend gross (£ million)` = 0.1))
+
+kbl(uk_film)
+```
+
+```{r}
+#| title: Top 5 UK independents
+
+uk_indie <- read_xlsx(here::here("data/bfi-yearbook-top-films.xlsx"), sheet = "T3", range = cell_rows(2:7))
+
+kbl(uk_indie)
 ```
