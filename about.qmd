@@ -1,5 +1,6 @@
 ---
 title: "About"
+sidebar: false
 ---
 
 The BFI is the lead organisation for film in the UK. Founded in 1933, it is a registered charity governed by Royal Charter. In 2011, it was given additional responsibilities, becoming a Government arm’s-length body and distributor of Lottery funds for film, widening its strategic focus.

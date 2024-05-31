@@ -10,3 +10,33 @@ always_allow_html: true
 ---
 
 The cinema sector in the UK showed significant signs of recovery in 2021. While still below pre-pandemic levels, there was a strong upturn in both ticket sales and box office receipts during the year.
+
+![](images/jake-hills-23LET4Hxj_U-unsplash.jpg)
+
+### Facts in focus
+
+::: grid
+::: {.g-col-12 .g-col-md-6 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### [UK cinema admissions reached 74 million in 2021, up 68% on 2020 (44 million), but down from 176 million in 2019.](admissions.qmd#fig-admissions-html)
+:::
+
+::: {.g-col-12 .g-col-md-6 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### UK box office receipts were £542 million, up from £307 million in 2020, but down from £1.25 billion in 2019.
+:::
+
+::: {.g-col-12 .g-col-md-6 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### A total of 442 films were released for a week or more in the UK and Republic of Ireland, up from 381 films in 2020 (764 in 2019).
+:::
+
+::: {.g-col-12 .g-col-md-6 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### UK films, including co-productions, accounted for 30% of releases and 41% of the market by value.
+:::
+
+::: {.g-col-12 .g-col-md-6 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### The box office share of UK independent films was 5%, down from 14% in 2020.
+:::
+
+::: {.g-col-12 .g-col-md-6 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### The top 100 films earned almost 98% of the gross box office.
+:::
+:::

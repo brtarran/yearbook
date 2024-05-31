@@ -10,3 +10,49 @@ always_allow_html: true
 ---
 
 Five of the top 10 films released at the UK and Republic of Ireland box office in 2021 were UK qualifying productions. The list is headed by the latest James Bond outing No Time to Die which became the third highest earning film of all time in the UK with gross receipts of £97 million.
+
+![](images/samuel-regan-asante-wMkaMXTJjlQ-unsplash.jpg)
+
+### Facts in focus
+
+::: grid
+::: {.g-col-12 .g-col-md-4 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### [Five films earned £20 million or over at the UK and Republic of Ireland box office in 2021, up from one in 2020, but down from 17 in 2019.](top-20.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-4 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### Seven UK qualifying films featured in the top 20 films of the year, all UK/USA studio-backed films.
+:::
+
+::: {.g-col-12 .g-col-md-4 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### The French Dispatch, with takings of £4 million, was the highest earning UK independent film of the year.
+:::
+
+::: {.g-col-12 .g-col-md-6 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### The top 20 UK films made £238 million (£113 million in 2020; £527 million in 2019), 39% of the total box office.
+:::
+
+::: {.g-col-12 .g-col-md-6 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### The top 20 UK independent films made £27 million (£34 million in 2020; £145 million in 2019), 4% of the total box office.
+:::
+
+::: {.g-col-12 .g-col-md-4 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### Six UK qualifying films spent a total of 14 weeks at the top of the UK and Republic of Ireland weekend box office charts.
+:::
+
+::: {.g-col-12 .g-col-md-4 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### Foreign language films made £11 million at the UK and Republic of Ireland box office from 142 releases. The top earning foreign language release was Demon Slayer the Movie: Mugen Train (in Japanese). 
+:::
+
+::: {.g-col-12 .g-col-md-4 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### Feature documentaries made £2 million at the UK and Republic of Ireland box office from 69 releases. The top earning documentary release was Summer of Soul (...Or, When the Revolution Could Not Be Televised).
+:::
+
+::: {.g-col-12 .g-col-md-6 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### Action was the highest grossing genre of the year with takings of £297 million. The top earning action title was No Time to Die.
+:::
+
+::: {.g-col-12 .g-col-md-6 style="background-color:#f8f9fa; padding-left:1.5rem; padding-right:1.5rem; padding-bottom:1.5rem;"}
+#### There were more ‘15’ releases than any other classification, but ‘12A’ films generated the largest single share of the box office.
+:::
+:::

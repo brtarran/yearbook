@@ -1,3 +1,8 @@
 ---
 title: "Statistical Yearbook 2022"
+toc: false
 ---
+
+![](images/jakob-owens-CiUR8zISX60-unsplash.jpg)
+
+### Welcome to the 2022 BFI Statistical Yearbook. Compiled by the Research and Statistics Unit, this Yearbook presents the most comprehensive picture of film in the UK and the performance of British films abroad during 2021. This publication is one of the ways the BFI delivers on its commitment to evidence-based policy for film. We hope you enjoy this Yearbook and find it useful.

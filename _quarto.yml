@@ -14,6 +14,7 @@ website:
         text: Chapters
   
   sidebar:
+    style: docked
     collapse-level: 1
     contents:
       - section: "Statistical Yearbook 2022"
@@ -31,6 +32,8 @@ website:
             contents:
               - href: chapters/top-films/top-20.qmd
                 text: The top 20 films
+              - href: chapters/top-films/classification.qmd
+                text: Releases and box office by BBFC classification
       
 format:
   html:
