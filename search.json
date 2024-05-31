@@ -4,7 +4,7 @@
     "href": "chapters/top-films/index.html",
     "title": "Top films in 2021",
     "section": "",
-    "text": "Five of the top 10 films released at the UK and Republic of Ireland box office in 2021 were UK qualifying productions. The list is headed by the latest James Bond outing No Time to Die which became the third highest earning film of all time in the UK with gross receipts of £97 million.",
+    "text": "Five of the top 10 films released at the UK and Republic of Ireland box office in 2021 were UK qualifying productions. The list is headed by the latest James Bond outing No Time to Die which became the third highest earning film of all time in the UK with gross receipts of £97 million.\n\n\nFacts in focus\n\n\nFive films earned £20 million or over at the UK and Republic of Ireland box office in 2021, up from one in 2020, but down from 17 in 2019.\n\n\nSeven UK qualifying films featured in the top 20 films of the year, all UK/USA studio-backed films.\n\n\nThe French Dispatch, with takings of £4 million, was the highest earning UK independent film of the year.\n\n\nThe top 20 UK films made £238 million (£113 million in 2020; £527 million in 2019), 39% of the total box office.\n\n\nThe top 20 UK independent films made £27 million (£34 million in 2020; £145 million in 2019), 4% of the total box office.\n\n\nSix UK qualifying films spent a total of 14 weeks at the top of the UK and Republic of Ireland weekend box office charts.\n\n\nForeign language films made £11 million at the UK and Republic of Ireland box office from 142 releases. The top earning foreign language release was Demon Slayer the Movie: Mugen Train (in Japanese).\n\n\nFeature documentaries made £2 million at the UK and Republic of Ireland box office from 69 releases. The top earning documentary release was Summer of Soul (…Or, When the Revolution Could Not Be Televised).\n\n\nAction was the highest grossing genre of the year with takings of £297 million. The top earning action title was No Time to Die.\n\n\nThere were more ‘15’ releases than any other classification, but ‘12A’ films generated the largest single share of the box office.",
     "crumbs": [
       "Home",
       "Statistical Yearbook 2022",
@@ -12,16 +12,35 @@
     ]
   },
   {
-    "objectID": "chapters/box-office/index.html",
-    "href": "chapters/box-office/index.html",
-    "title": "The Box Office",
+    "objectID": "chapters/index.html",
+    "href": "chapters/index.html",
+    "title": "Statistical Yearbook 2022",
     "section": "",
-    "text": "The cinema sector in the UK showed significant signs of recovery in 2021. While still below pre-pandemic levels, there was a strong upturn in both ticket sales and box office receipts during the year.",
+    "text": "Welcome to the 2022 BFI Statistical Yearbook. Compiled by the Research and Statistics Unit, this Yearbook presents the most comprehensive picture of film in the UK and the performance of British films abroad during 2021. This publication is one of the ways the BFI delivers on its commitment to evidence-based policy for film. We hope you enjoy this Yearbook and find it useful.",
+    "crumbs": [
+      "Home",
+      "Statistical Yearbook 2022"
+    ]
+  },
+  {
+    "objectID": "chapters/box-office/history.html",
+    "href": "chapters/box-office/history.html",
+    "title": "Annual UK admissions, 1935-2021",
+    "section": "",
+    "text": "The chart below puts UK admissions in a longer-term perspective. Along with the USA and other western European countries, cinema-going in the UK declined sharply in the post-war era as incomes rose and new leisure activities became available. The largest competition came from the growth of television, which allowed audiences to satisfy their appetite for screen entertainment in the comfort of their own homes. As cinema admissions fell so did the supply of screens, which led to further falling demand and more cinema closures. By the 1980s the number and quality of the remaining cinemas were at an all-time low. The popularisation of the VCR in the same decade had a further negative impact on attendances, and by 1984 ticket sales had plummeted to a 50-year low of 54 million. However, the introduction of multiplex cinemas to the UK from 1985 onwards began to reverse the trend and ushered in a new period of growth which saw admissions gradually returning to levels last seen in the early 1970s. In the decade prior to the COVID-19 pandemic (2010-2019) attendances topped 170 million in six different years, peaking in 2018 with the highest admissions since 1970. The onset of the pandemic in the UK in 2020 caused massive disruption to the cinema sector: admissions for the year fell to an all-time low of 44 million. While the impact of the pandemic continued into 2021, admissions began to recover with total tickets sales for the year up by more than two-thirds compared with 2020.",
     "crumbs": [
       "Home",
       "Statistical Yearbook 2022",
-      "The Box Office"
+      "The Box Office",
+      "Annual UK admissions, 1935-2021"
     ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "The BFI is the lead organisation for film in the UK. Founded in 1933, it is a registered charity governed by Royal Charter. In 2011, it was given additional responsibilities, becoming a Government arm’s-length body and distributor of Lottery funds for film, widening its strategic focus.\nThe BFI now combines a cultural, creative and industrial role. This brings together activities including the BFI National Archive, distribution, cultural programming, publishing and festivals with Lottery investment for film production, distribution, education, audience development and market intelligence and research."
   },
   {
     "objectID": "chapters/box-office/admissions.html",
@@ -37,23 +56,28 @@
     ]
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "chapters/box-office/index.html",
+    "href": "chapters/box-office/index.html",
+    "title": "The Box Office",
     "section": "",
-    "text": "The BFI is the lead organisation for film in the UK. Founded in 1933, it is a registered charity governed by Royal Charter. In 2011, it was given additional responsibilities, becoming a Government arm’s-length body and distributor of Lottery funds for film, widening its strategic focus.\nThe BFI now combines a cultural, creative and industrial role. This brings together activities including the BFI National Archive, distribution, cultural programming, publishing and festivals with Lottery investment for film production, distribution, education, audience development and market intelligence and research."
-  },
-  {
-    "objectID": "chapters/box-office/history.html",
-    "href": "chapters/box-office/history.html",
-    "title": "Annual UK admissions, 1935-2021",
-    "section": "",
-    "text": "The chart below puts UK admissions in a longer-term perspective. Along with the USA and other western European countries, cinema-going in the UK declined sharply in the post-war era as incomes rose and new leisure activities became available. The largest competition came from the growth of television, which allowed audiences to satisfy their appetite for screen entertainment in the comfort of their own homes. As cinema admissions fell so did the supply of screens, which led to further falling demand and more cinema closures. By the 1980s the number and quality of the remaining cinemas were at an all-time low. The popularisation of the VCR in the same decade had a further negative impact on attendances, and by 1984 ticket sales had plummeted to a 50-year low of 54 million. However, the introduction of multiplex cinemas to the UK from 1985 onwards began to reverse the trend and ushered in a new period of growth which saw admissions gradually returning to levels last seen in the early 1970s. In the decade prior to the COVID-19 pandemic (2010-2019) attendances topped 170 million in six different years, peaking in 2018 with the highest admissions since 1970. The onset of the pandemic in the UK in 2020 caused massive disruption to the cinema sector: admissions for the year fell to an all-time low of 44 million. While the impact of the pandemic continued into 2021, admissions began to recover with total tickets sales for the year up by more than two-thirds compared with 2020.",
+    "text": "The cinema sector in the UK showed significant signs of recovery in 2021. While still below pre-pandemic levels, there was a strong upturn in both ticket sales and box office receipts during the year.\n\n\nFacts in focus\n\n\nUK cinema admissions reached 74 million in 2021, up 68% on 2020 (44 million), but down from 176 million in 2019.\n\n\nUK box office receipts were £542 million, up from £307 million in 2020, but down from £1.25 billion in 2019.\n\n\nA total of 442 films were released for a week or more in the UK and Republic of Ireland, up from 381 films in 2020 (764 in 2019).\n\n\nUK films, including co-productions, accounted for 30% of releases and 41% of the market by value.\n\n\nThe box office share of UK independent films was 5%, down from 14% in 2020.\n\n\nThe top 100 films earned almost 98% of the gross box office.",
     "crumbs": [
       "Home",
       "Statistical Yearbook 2022",
-      "The Box Office",
-      "Annual UK admissions, 1935-2021"
+      "The Box Office"
+    ]
+  },
+  {
+    "objectID": "chapters/top-films/classification.html",
+    "href": "chapters/top-films/classification.html",
+    "title": "Releases and box office by BBFC classification",
+    "section": "",
+    "text": "As Figure 4 shows, while the shares of box office by film classification vary from year to year, the rankings of the classifications by box office have been broadly consistent.\nBetween 2012 and 2021, the ‘12A’ rating was the top earner, apart from in 2020, while the ‘18’ rating was the lowest earner. (The drop in share for ‘12A’ films in 2020 is primarily related to the reduction in the number of big budget studio titles released in the year which typically include a significant proportion of high earning films with a ‘12A’ rating.)\nWith the exception of 2018 (when it was third) and 2020 (when it was first) the ‘15’ rating was the second highest earning classification over the period.\nThe ‘PG’ and ‘U’ ratings swapped third and fourth place throughout the period, again with the exception of 2020 (when ‘PG’ rated films were the second highest earning classification), although this was due primarily to the fall in the share for ‘12A’ films.",
+    "crumbs": [
+      "Home",
+      "Statistical Yearbook 2022",
+      "Top films",
+      "Releases and box office by BBFC classification"
     ]
   },
   {

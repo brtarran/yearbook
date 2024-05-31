@@ -1,1 +1,17 @@
 /* css styles */
+.sidebar.sidebar-navigation:not(.rollup) {
+  border-right: none !important;
+}
+
+.grid {
+  cursor: pointer;
+}
+
+.grid a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.grid a:hover {
+  color: #2761e3;
+}
