@@ -8,10 +8,12 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: Dashboard
       - about.qmd
       - href: chapters/index.qmd
         text: Chapters
+      - href: data-explorer.qmd
+        text: Data explorer
   
   sidebar:
     style: docked
