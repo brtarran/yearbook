@@ -5,13 +5,52 @@ execute:
   warning: false
 format:
   html: default
-  pdf: default
+  # pdf: default
 always_allow_html: true
 ---
-As Figure 4 shows, while the shares of box office by film classification vary from year to year, the rankings of the classifications by box office have been broadly consistent. 
+As @fig-classification shows, while the shares of box office by film classification vary from year to year, the rankings of the classifications by box office have been broadly consistent. 
 
 Between 2012 and 2021, the ‘12A’ rating was the top earner, apart from in 2020, while the ‘18’ rating was the lowest earner. (The drop in share for ‘12A’ films in 2020 is primarily related to the reduction in the number of big budget studio titles released in the year which typically include a significant proportion of high earning films with a ‘12A’ rating.) 
 
 With the exception of 2018 (when it was third) and 2020 (when it was first) the ‘15’ rating was the second highest earning classification over the period. 
 
 The ‘PG’ and ‘U’ ratings swapped third and fourth place throughout the period, again with the exception of 2020 (when ‘PG’ rated films were the second highest earning classification), although this was due primarily to the fall in the share for ‘12A’ films.
+
+```{r}
+#| label: fig-classification
+#| fig-cap: "Percentage of gross box office of releases in the UK and Republic of Ireland by film classification, 2012-2021. [Download this data.](/data/bfi-yearbook-top-films.xlsx)"
+#| column: page
+
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(highcharter)
+library(readxl)
+library(knitr)
+
+## import data
+classification <- read_xlsx(here::here("data/bfi-yearbook-top-films.xlsx"), sheet = "F4", range = cell_rows(2:7))
+
+## rename 1st column
+colnames(classification)[1] <- "Classification"
+
+## put date in tidy format
+classification_tidy <- classification %>%
+pivot_longer(!Classification, names_to = "Year", values_to = "Percentage")
+
+## visualisation tooltip settings
+x <- c("Classification", "Box office (%)")
+y <- c("{point.Classification}", "{point.Percentage}")
+
+tt <- tooltip_table(x, y)
+
+## create visualisation
+hchart(classification_tidy, "line", hcaes(x = Year, y = Percentage, group = Classification))%>%
+hc_tooltip(pointFormat = tt, useHTML = TRUE)%>%
+hc_caption(
+  text = "Note: Figures as at 13 February 2022."
+  )%>%
+hc_credits(
+  enabled = TRUE, text = "Source: Comscore, BBFC, BFI RSU analysis."
+)
+```
