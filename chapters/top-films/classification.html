@@ -67,6 +67,49 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<script src="../../site_libs/proj4js-2.3.15/proj4.js"></script>
+<link href="../../site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+<script src="../../site_libs/highcharts-9.3.1/highcharts.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/highcharts-3d.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/highcharts-more.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/stock.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/map.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/data.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/exporting.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/drilldown.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/item-series.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/annotations.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/export-data.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/funnel.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/heatmap.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/treemap.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/sankey.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/organization.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/sunburst.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/vector.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/xrange.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/tilemap.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/venn.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/gantt.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/timeline.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/bullet.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/lollipop.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/series-label.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/plugins/motion.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/custom/reset.js"></script>
+<script src="../../site_libs/highcharts-9.3.1/modules/boost.js"></script>
+<script src="../../site_libs/highchart-binding-0.9.4/highchart.js"></script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -188,9 +231,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="classification.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/index.html">Statistical Yearbook 2022</a></li><li class="breadcrumb-item"><a href="../../chapters/top-films/index.html">Top films</a></li><li class="breadcrumb-item"><a href="../../chapters/top-films/classification.html">Releases and box office by BBFC classification</a></li></ol></nav>
 <div class="quarto-title">
@@ -211,10 +254,23 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>As Figure 4 shows, while the shares of box office by film classification vary from year to year, the rankings of the classifications by box office have been broadly consistent.</p>
+<p>As <a href="#fig-classification" class="quarto-xref">Figure&nbsp;1</a> shows, while the shares of box office by film classification vary from year to year, the rankings of the classifications by box office have been broadly consistent.</p>
 <p>Between 2012 and 2021, the ‘12A’ rating was the top earner, apart from in 2020, while the ‘18’ rating was the lowest earner. (The drop in share for ‘12A’ films in 2020 is primarily related to the reduction in the number of big budget studio titles released in the year which typically include a significant proportion of high earning films with a ‘12A’ rating.)</p>
 <p>With the exception of 2018 (when it was third) and 2020 (when it was first) the ‘15’ rating was the second highest earning classification over the period.</p>
 <p>The ‘PG’ and ‘U’ ratings swapped third and fourth place throughout the period, again with the exception of 2020 (when ‘PG’ rated films were the second highest earning classification), although this was due primarily to the fall in the share for ‘12A’ films.</p>
+<div class="cell column-page">
+<div id="fig-classification" class="cell-output-display quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-classification-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="highchart html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-742822d7e3fd0947f1dd" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-742822d7e3fd0947f1dd">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Percentage"},"type":"linear"},"credits":{"enabled":true,"text":"Source: Comscore, BBFC, BFI RSU analysis."},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"showInLegend":true},"treemap":{"layoutAlgorithm":"squarified"},"scatter":{"marker":{"symbol":"circle"}}},"series":[{"name":"12A","data":[{"Classification":"12A","Year":"2012","Percentage":51.8,"y":51.8,"name":"2012"},{"Classification":"12A","Year":"2013","Percentage":45.5,"y":45.5,"name":"2013"},{"Classification":"12A","Year":"2014","Percentage":44.3,"y":44.3,"name":"2014"},{"Classification":"12A","Year":"2015","Percentage":55.7,"y":55.7,"name":"2015"},{"Classification":"12A","Year":"2016","Percentage":39.8,"y":39.8,"name":"2016"},{"Classification":"12A","Year":"2017","Percentage":43.9,"y":43.9,"name":"2017"},{"Classification":"12A","Year":"2018","Percentage":40.7,"y":40.7,"name":"2018"},{"Classification":"12A","Year":"2019","Percentage":36.4,"y":36.4,"name":"2019"},{"Classification":"12A","Year":"2020","Percentage":17.1,"y":17.1,"name":"2020"},{"Classification":"12A","Year":"2021","Percentage":59.6,"y":59.6,"name":"2021"}],"type":"line"},{"name":"15","data":[{"Classification":"15","Year":"2012","Percentage":22.3,"y":22.3,"name":"2012"},{"Classification":"15","Year":"2013","Percentage":24.4,"y":24.4,"name":"2013"},{"Classification":"15","Year":"2014","Percentage":27.2,"y":27.2,"name":"2014"},{"Classification":"15","Year":"2015","Percentage":18.7,"y":18.7,"name":"2015"},{"Classification":"15","Year":"2016","Percentage":31.7,"y":31.7,"name":"2016"},{"Classification":"15","Year":"2017","Percentage":22.3,"y":22.3,"name":"2017"},{"Classification":"15","Year":"2018","Percentage":22.1,"y":22.1,"name":"2018"},{"Classification":"15","Year":"2019","Percentage":22.3,"y":22.3,"name":"2019"},{"Classification":"15","Year":"2020","Percentage":46.9,"y":46.9,"name":"2020"},{"Classification":"15","Year":"2021","Percentage":20.1,"y":20.1,"name":"2021"}],"type":"line"},{"name":"18","data":[{"Classification":"18","Year":"2012","Percentage":1.9,"y":1.9,"name":"2012"},{"Classification":"18","Year":"2013","Percentage":3,"y":3,"name":"2013"},{"Classification":"18","Year":"2014","Percentage":4.7,"y":4.7,"name":"2014"},{"Classification":"18","Year":"2015","Percentage":4.3,"y":4.3,"name":"2015"},{"Classification":"18","Year":"2016","Percentage":0.8,"y":0.8,"name":"2016"},{"Classification":"18","Year":"2017","Percentage":4,"y":4,"name":"2017"},{"Classification":"18","Year":"2018","Percentage":2.6,"y":2.6,"name":"2018"},{"Classification":"18","Year":"2019","Percentage":2.4,"y":2.4,"name":"2019"},{"Classification":"18","Year":"2020","Percentage":5.5,"y":5.5,"name":"2020"},{"Classification":"18","Year":"2021","Percentage":2.3,"y":2.3,"name":"2021"}],"type":"line"},{"name":"PG","data":[{"Classification":"PG","Year":"2012","Percentage":13.7,"y":13.7,"name":"2012"},{"Classification":"PG","Year":"2013","Percentage":10.7,"y":10.7,"name":"2013"},{"Classification":"PG","Year":"2014","Percentage":11.9,"y":11.9,"name":"2014"},{"Classification":"PG","Year":"2015","Percentage":6.3,"y":6.3,"name":"2015"},{"Classification":"PG","Year":"2016","Percentage":15.7,"y":15.7,"name":"2016"},{"Classification":"PG","Year":"2017","Percentage":14.1,"y":14.1,"name":"2017"},{"Classification":"PG","Year":"2018","Percentage":25.2,"y":25.2,"name":"2018"},{"Classification":"PG","Year":"2019","Percentage":21.8,"y":21.8,"name":"2019"},{"Classification":"PG","Year":"2020","Percentage":21.8,"y":21.8,"name":"2020"},{"Classification":"PG","Year":"2021","Percentage":8.5,"y":8.5,"name":"2021"}],"type":"line"},{"name":"U","data":[{"Classification":"U","Year":"2012","Percentage":10.3,"y":10.3,"name":"2012"},{"Classification":"U","Year":"2013","Percentage":16.3,"y":16.3,"name":"2013"},{"Classification":"U","Year":"2014","Percentage":11.8,"y":11.8,"name":"2014"},{"Classification":"U","Year":"2015","Percentage":15.1,"y":15.1,"name":"2015"},{"Classification":"U","Year":"2016","Percentage":12,"y":12,"name":"2016"},{"Classification":"U","Year":"2017","Percentage":15.6,"y":15.6,"name":"2017"},{"Classification":"U","Year":"2018","Percentage":9.4,"y":9.4,"name":"2018"},{"Classification":"U","Year":"2019","Percentage":17.1,"y":17.1,"name":"2019"},{"Classification":"U","Year":"2020","Percentage":8.7,"y":8.7,"name":"2020"},{"Classification":"U","Year":"2021","Percentage":9.4,"y":9.4,"name":"2021"}],"type":"line"}],"xAxis":{"type":"category","title":{"text":"Year"},"categories":null},"tooltip":{"pointFormat":"<table>\n  <tr>\n    <th>Classification<\/th>\n    <td>{point.Classification}<\/td>\n  <\/tr>\n  <tr>\n    <th>Box office (%)<\/th>\n    <td>{point.Percentage}<\/td>\n  <\/tr>\n<\/table>","useHTML":true},"caption":{"text":"Note: Figures as at 13 February 2022."}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-classification-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Percentage of gross box office of releases in the UK and Republic of Ireland by film classification, 2012-2021. <a href="../..\data/bfi-yearbook-top-films.xlsx">Download this data.</a>
+</figcaption>
+</figure>
+</div>
+</div>
 
 
 
